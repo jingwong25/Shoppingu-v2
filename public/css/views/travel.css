@@ -1,0 +1,237 @@
+.form-control-small {
+    border: none !important;
+    border-radius: 3px;
+    -webkit-transition: width .5s ease-in-out;
+    -moz-transition: width .5s ease-in-out;
+    -o-transition: width .5s ease-in-out;
+    -ms-transition: width .5s ease-in-out;
+    transition: width .5s ease-in-out;
+    width: 72%;
+}
+
+.form-control-smallAfter {
+    border: solid red;
+    border-width: 1px;
+    -webkit-transition: width .5s ease-in-out;
+    -moz-transition: width .5s ease-in-out;
+    -o-transition: width .5s ease-in-out;
+    -ms-transition: width .5s ease-in-out;
+    transition: width .5s ease-in-out;
+    width: 72%;
+}
+
+.highlight {
+	color: #0DA99F;
+}
+
+.form-step{
+    text-align: center;
+    margin: 30px 0 50px
+}
+
+.step{
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative
+}
+
+.form-step .step{
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+.step:first-child .step-divider{
+    display: none;
+}
+
+.activated .step-divider, .activated .step-number{
+    background: #0DA99F;
+}
+
+.step-divider{
+    height: 4px;
+    width: 70px;
+    display: inline-block;
+    border-radius: 10px;
+    margin-right: 0;
+    vertical-align: middle;
+}
+
+.step-group{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    position: relative;
+}
+
+.step-divider, .step-number{
+    background: #D1F2EB;
+}
+
+.active .step-number:before{
+    display: inline-block;
+    margin-right: 3px;
+}
+
+.active .step-number{
+    width: auto;
+    padding: 0 30px;
+}
+
+.step-number{
+    border-radius: 5%;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+}
+
+.step.activated .step-title{
+    color: #000
+}
+
+.step.active .step-title{
+    right: auto;
+}
+
+::placeholder{
+    color: #b6b6b6 !important;
+}
+
+/* Progress bar */
+.ProgressBar {
+    width: 50%;
+    margin: 0 auto;
+    padding: 2em 0 3em;
+    list-style: none;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 35px;
+}
+
+.ProgressBar-step {
+    text-align: center;
+    position: relative;
+    width: 100%;
+  }
+  .ProgressBar-step:before, .ProgressBar-step:after {
+    content: "";
+    height: 0.2em;
+    background-color: #BDBDBD;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: -50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.25s ease-out;
+  }
+  .ProgressBar-step:first-child:before, .ProgressBar-step:first-child:after {
+    display: none;
+  }
+  .ProgressBar-step:after {
+    background-color: #FFCC80;
+    width: 0%;
+  }
+  .ProgressBar-step.is-complete + .ProgressBar-step.is-current:after, .ProgressBar-step.is-complete + .ProgressBar-step.is-complete:after {
+    width: 100%;
+  }
+
+  .ProgressBar-icon {
+    width: 6.5em;
+    height: 3.5em;
+    background-color: #BDBDBD;
+    fill: #BDBDBD;
+    border-radius: 5%;
+    padding: 0.5em;
+    max-width: 100%;
+    z-index: 10;
+    position: relative;
+    transition: all 0.25s ease-out;
+  }
+  .is-current .ProgressBar-icon {
+    fill: #FFCC80;
+    background-color: #FFCC80;
+  }
+  .is-complete .ProgressBar-icon {
+    fill: #dbf1ff;
+    background-color: #FFCC80;
+  }
+  
+  .ProgressBar-stepLabel {
+    display: block;
+    color: #BDBDBD;
+    position: absolute;
+    padding-top: 0.5em;
+    width: 100%;
+    transition: all 0.25s ease-out;
+  }
+  .is-current > .ProgressBar-stepLabel, .is-complete > .ProgressBar-stepLabel {
+    color: #000;
+  }
+    
+/* FOR CODEPEN FORMATTING */
+.wrapper {
+  max-width: 1000px;
+  margin: 4em auto;
+  font-size: 16px;
+}
+/* END CODEPEN FORMATTING */
+
+.showText{
+    display: block;
+}
+
+.hideText{
+    display: none;
+}
+
+#form-views.ng-enter            { 
+    -webkit-animation:slideInRight 0.5s both ease;
+	-moz-animation:slideInRight 0.5s both ease;
+	animation:slideInRight 0.5s both ease; 
+}
+
+/* leave animation */
+#form-views.ng-leave            { 
+    -webkit-animation:slideOutLeft 0.5s both ease;
+	-moz-animation:slideOutLeft 0.5s both ease;
+	animation:slideOutLeft 0.5s both ease;   
+}
+
+#form-views.ng-enter,
+#form-views.ng-leave      { position:absolute; left:30px; right:30px;
+    transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease; 
+}
+
+@keyframes slideOutLeft {
+	to 		{ transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {	
+	to 		{ -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+	to 		{ -webkit-transform: translateX(-200%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+	from 	{ transform:translateX(200%); }
+	to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+	from 	{ -moz-transform:translateX(200%); }
+	to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+	from 	{ -webkit-transform:translateX(200%); }
+	to 		{ -webkit-transform: translateX(0); }
+}

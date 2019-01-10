@@ -1,0 +1,75 @@
+<div class="container padding-top-2x padding-bottom-3x mb-2" ng-controller="signUp">
+    <div class="row justify-content-center">     
+        <div class="col-md-6">
+            <div class="padding-top-3x hidden-md-up"></div>
+            <h3 class="margin-bottom-1x">No Account? Register</h3>
+            <p>Registration takes less than a minute but gives you full control over your orders.</p>
+            <form class="row" ng-submit="signUp()">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-fn">First Name</label>
+                        <input class="form-control" type="text" id="reg-fn" ng-model="firstName" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-ln">Last Name</label>
+                        <input class="form-control" type="text" id="reg-ln" ng-model="lastName" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-email">E-mail Address</label>
+                        <input class="form-control" type="email" id="reg-email" ng-model="email" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-phone">Phone Number</label>
+                        <input class="form-control" type="text" id="reg-phone" ng-model="phoneNumber" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-un">User Name</label>
+                        <input class="form-control" type="text" id="reg-un" ng-model="userName" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-pass">Password</label>
+                        <input class="form-control" type="password" id="reg-pass" ng-model="password" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="reg-pass-confirm">Confirm Password</label>
+                        <input class="form-control" type="password" id="reg-pass-confirm" ng-model="confirmPassword" required>
+                    </div>
+                </div>
+                <div class="col-12 text-center text-sm-right">
+                    <button class="btn btn-primary margin-bottom-none" type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Thanks for signing up!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="container padding-bottom-3x mb-2">
+    <div class="checkout-steps" style="width: 700px; margin: 0 auto; padding: 50px 0px;">
+        <a class="progress-steps active" href="#">3. Review</a>
+        <a class="progress-steps" href="#">
+            <!-- <span class="step-indicator icon-circle-check"></span> -->
+            <span class="angle"></span>
+            2. Post Product
+        </a>
+        <a class="progress-steps" href="#">
+            <span class="angle"></span>
+            1. Post Travel
+        </a>
+    </div>
+
+    <div class="d-flex justify-content-center" ng-init="init()">
+        <div class="col-lg-9 col-md-8 order-md-2">
+            <h6 class="text-muted text-normal text-uppercase margin-top-2x">Review</h6>
+            <br/>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="col-lg-9 col-md-8 order-md-2">
+            <h5>Travel Information:</h5>
+            <ul class="list-unstyled">
+                <li>
+                    <span class="text-muted">Country:</span>{{productObj.countryName}}</li>
+                <li>
+                    <span class="text-muted">Date From:</span>{{productObj.startDate}}</li>
+                <li>
+                    <span class="text-muted">Date To:</span>{{productObj.toDate}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="col-lg-9 col-md-8 order-md-2">
+            <br/>
+            <br/>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Product Name</th>
+                            <th>Product Cat.</th>
+                            <th>Product Sub Cat.</th>
+                            <th>Quantity</th>
+                            <th>Currency</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="model in productObj.productList">
+                            <th scope="row">1</th>
+                            <td>{{model.productName}}</td>
+                            <td>{{model.productCategoryName}}</td>
+                            <td>{{model.productSubCategoryName}}</td>
+                            <td>{{model.quantity}}</td>
+                            <td>{{model.currency}}</td>
+                            <td>{{model.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: right;">
+        <!-- <a class="btn btn-primary" href="postproduct">Back</a> -->
+        <a class="btn btn-primary" ng-click="savePostTravel()">Confirm</a>
+    </div>
+</div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Your product has been posted!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
