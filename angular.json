@@ -27,9 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/css/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/js/modernizr.min.js",
+              "src/js/scripts.min.js"
+            ]
           },
           "configurations": {
             "production": {
