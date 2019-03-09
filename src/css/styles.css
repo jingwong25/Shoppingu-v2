@@ -3,6 +3,9 @@
  * Copyright 2018 rokaux
  * Theme Styles
  */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 @import url("https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900");
 .sub-menu, .toolbar-dropdown {
   display: none;
@@ -492,6 +495,7 @@ figure figcaption {
   .container {
     width: 1170px;
     max-width: 1170px;
+    margin: auto;
   }
 }
 
