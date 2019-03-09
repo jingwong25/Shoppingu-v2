@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
 import { Observable } from "rxjs";
 import { map, startWith } from "rxjs/operators";
 import { CountryService } from "../../services/country.service";
@@ -11,15 +11,21 @@ import { Country } from "../../interface/country";
   styleUrls: ["./travel.component.scss"]
 })
 export class TravelComponent implements OnInit {
-  myControl = new FormControl();
+  selectedCountry = this.fb.control(['']);
+  travelForm = this.fb.group({
+    country: [""],
+    travelDateFrom: [""],
+    travelDateTo: [""]
+  });
+
   private options: Country[] = [];
   private filteredOptions: Observable<Country[]>;
 
-  constructor(private countryService: CountryService) {
+  constructor(private fb: FormBuilder, private countryService: CountryService) {
     this.countryService.countryList().subscribe((res: Country[]) => {
       this.options = res;
 
-      this.filteredOptions = this.myControl.valueChanges.pipe(
+      this.filteredOptions = this.selectedCountry.valueChanges.pipe(
         startWith(""),
         map(value => this._filter(value))
       );
@@ -27,7 +33,7 @@ export class TravelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredOptions = this.selectedCountry.valueChanges.pipe(
       startWith(""),
       map(value => this._filter(value))
     );

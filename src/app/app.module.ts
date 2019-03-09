@@ -1,12 +1,19 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatAutocompleteModule } from "@angular/material";
-import {MatInputModule} from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {FormsModule} from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatSelectModule,
+  MatAutocompleteModule
+} from "@angular/material";
+import { MatInputModule } from "@angular/material/input";
+import { MatTableModule } from "@angular/material/table";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -59,11 +66,13 @@ import { HomeComponent } from "./home/home.component";
     MatTableModule,
     MatSelectModule,
     MatAutocompleteModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

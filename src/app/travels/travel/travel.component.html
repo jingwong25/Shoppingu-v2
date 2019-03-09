@@ -1,21 +1,35 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input
-      type="text"
-      placeholder="Pick one"
-      aria-label="Number"
-      matInput
-      [formControl]="myControl"
-      [matAutocomplete]="auto"
-      (click)="clickCountry()"
-    />
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let option of (filteredOptions | async)"
-        [value]="option.name"
-      >
-        {{ option.name }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</form>
+<div class="container">
+  <div>
+    <mat-form-field class="example-full-width">
+      <input
+        type="text"
+        placeholder="Country to travel"
+        aria-label="Number"
+        matInput
+        [formControl]="selectedCountry"
+        [matAutocomplete]="auto"
+        (click)="clickCountry()"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of (filteredOptions | async)"
+          [value]="option.name"
+        >
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="travelDateFrom" placeholder="Travel date from" />
+      <mat-datepicker-toggle matSuffix [for]="travelDateFrom"></mat-datepicker-toggle>
+      <mat-datepicker #travelDateFrom></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="travelDateTo" placeholder="Travel date to" />
+        <mat-datepicker-toggle matSuffix [for]="travelDateTo"></mat-datepicker-toggle>
+        <mat-datepicker #travelDateTo></mat-datepicker>
+      </mat-form-field>
+  </div>
+</div>
