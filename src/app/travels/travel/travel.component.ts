@@ -11,7 +11,7 @@ import { Country } from "../../interface/country";
   styleUrls: ["./travel.component.scss"]
 })
 export class TravelComponent implements OnInit {
-  selectedCountry = this.fb.control(['']);
+  selectedCountry = this.fb.control([""]);
   travelForm = this.fb.group({
     country: [""],
     travelDateFrom: [""],
