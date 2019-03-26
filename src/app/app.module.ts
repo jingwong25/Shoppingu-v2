@@ -33,8 +33,11 @@ import { TravelsComponent } from "./travels/travels.component";
 import { TravelComponent } from "./travels/travel/travel.component";
 import { HeaderComponent } from "./core/header/header.component";
 import { FooterComponent } from "./core/footer/footer.component";
-import { SearchComponent } from "./home/search/search.component";
-import { HomeComponent } from "./home/home.component";
+import { SearchComponent } from "./landing/search/search.component";
+import { LandingComponent } from "./landing/landing.component";
+
+// Utilities
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -56,9 +59,10 @@ import { HomeComponent } from "./home/home.component";
     HeaderComponent,
     FooterComponent,
     SearchComponent,
-    HomeComponent
+    LandingComponent
   ],
   imports: [
+    CarouselModule,
     BrowserModule,
     MatButtonModule,
     MatCheckboxModule,
