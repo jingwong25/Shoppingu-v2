@@ -7,6 +7,7 @@ import {
   MatSelectModule,
   MatAutocompleteModule
 } from "@angular/material";
+import {MatTabsModule} from '@angular/material/tabs';
 import { MatInputModule } from "@angular/material/input";
 import { MatTableModule } from "@angular/material/table";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -72,6 +73,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatAutocompleteModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
