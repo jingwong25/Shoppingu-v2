@@ -1,13 +1,13 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatSelectModule,
-  MatAutocompleteModule
-} from "@angular/material";
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import {MatStepperModule} from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from "@angular/material/input";
 import { MatTableModule } from "@angular/material/table";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -15,6 +15,9 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+
+import { Ng2CompleterModule } from "ng2-completer";
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime'
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -63,16 +66,21 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LandingComponent
   ],
   imports: [
+    Ng2CompleterModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
     CarouselModule,
     BrowserModule,
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
+    MatIconModule,
     MatTableModule,
     MatSelectModule,
     MatAutocompleteModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    MatStepperModule,
     MatTabsModule,
     FormsModule,
     ReactiveFormsModule,

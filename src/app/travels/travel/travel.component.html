@@ -1,73 +1,99 @@
 <div class="container">
-  <mat-tab-group class="mb-5" mat-stretch-tabs animationDuration="650ms">
-    <mat-tab label="Travel">
-      <div class="row mt-3 mb-3 w-100">
-        <mat-form-field class="col-sm">
+  <ul class="nav nav-tabs justify-content-center" role="tablist">
+    <li class="nav-item">
+      <a
+        data-target="#travel"
+        class="nav-link active"
+        [ngClass]="{ active: activeTab === 'travel-tab' }"
+        (click)="onClickTab('travel-tab')"
+        data-toggle="tab"
+        role="tab"
+        >Travel</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        data-target="#product"
+        class="nav-link"
+        [ngClass]="{ active: activeTab === 'product-tab' }"
+        (click)="onClickTab('product-tab')"
+        data-toggle="tab"
+        role="tab"
+        >Product</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        data-target="#review"
+        class="nav-link"
+        [ngClass]="{ active: activeTab === 'review-tab' }"
+        (click)="onClickTab('review-tab')"
+        data-toggle="tab"
+        role="tab"
+        >Review</a
+      >
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div
+      class="tab-pane fade"
+      id="travel-tab"
+      role="tabpanel"
+      [ngClass]="{
+        active: activeTab === 'travel-tab',
+        show: activeTab === 'travel-tab'
+      }"
+    >
+      <form [formGroup]="travelForm">
+        <div class="form-group">
+          <label for="small-pill-input">Country to travel</label>
+          <ng2-completer
+            [inputClass]="'form-control form-control-sm'"
+            formControlName="country"
+            [datasource]="dataService"
+            [minSearchLength]="0"
+          ></ng2-completer>
+          <label for="small-pill-input">Travel Period</label>
           <input
-            type="text"
-            placeholder="Country to travel"
-            aria-label="Number"
-            matInput
-            [formControl]="selectedCountry"
-            [matAutocomplete]="auto"
-            (click)="clickCountry()"
+            class="form-control form-control-sm"
+            [owlDateTime]="dt1"
+            [owlDateTimeTrigger]="dt1"
+            [selectMode]="'range'"
+            placeholder="Date"
           />
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option
-              *ngFor="let option of (filteredOptions | async)"
-              [value]="option.name"
-            >
-              {{ option.name }}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-
-        <mat-form-field class="col-sm">
-          <input
-            matInput
-            [matDatepicker]="travelDateFrom"
-            placeholder="Travel date from"
-          />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="travelDateFrom"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #travelDateFrom></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field class="col-sm">
-          <input
-            matInput
-            [matDatepicker]="travelDateTo"
-            placeholder="Travel date to"
-          />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="travelDateTo"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #travelDateTo></mat-datepicker>
-        </mat-form-field>
-      </div>
-
-      <div class="row w-100">
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm text-right">
-          <button mat-raised-button color="primary">Primary</button>
+          <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
         </div>
-      </div>
-    </mat-tab>
-    <mat-tab label="Product">
-      <div class="mb-3 mt-3 text-center">
-        <mat-form-field class="col-8">
-          <input matInput placeholder="Product Name" />
-        </mat-form-field>
-
-        <mat-form-field class="col-8">
-          <input matInput placeholder="Product Description" />
-        </mat-form-field>
-      </div>
-    </mat-tab>
-    <mat-tab label="Review"> <h3>Review</h3> </mat-tab>
-  </mat-tab-group>
+      </form>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="product-tab"
+      role="tabpanel"
+      [ngClass]="{
+        active: activeTab === 'product-tab',
+        show: activeTab === 'product-tab'
+      }"
+    >
+      <div class="form-group"></div>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="review-tab"
+      role="tabpanel"
+      [ngClass]="{
+        active: activeTab === 'review-tab',
+        show: activeTab === 'review-tab'
+      }"
+    >
+      <p>
+        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party
+        before they sold out master cleanse gluten-free squid scenester freegan
+        cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf
+        cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR,
+        banh mi before they sold out farm-to-table VHS viral locavore cosby
+        sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft
+        beer marfa ethical. Wolf salvia freegan.
+      </p>
+    </div>
+  </div>
 </div>

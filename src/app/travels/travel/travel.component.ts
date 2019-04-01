@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { map, startWith } from "rxjs/operators";
 import { CountryService } from "../../services/country.service";
 import { Country } from "../../interface/country";
+import { CompleterService, CompleterData } from "ng2-completer";
 
 @Component({
   selector: "app-travel",
@@ -18,36 +19,25 @@ export class TravelComponent implements OnInit {
     travelDateTo: [""]
   });
 
-  private options: Country[] = [];
-  private filteredOptions: Observable<Country[]>;
+  protected dataService: CompleterData;
+  protected activeTab: String;
 
-  constructor(private fb: FormBuilder, private countryService: CountryService) {
+  constructor(
+    private fb: FormBuilder,
+    private countryService: CountryService,
+    private completerService: CompleterService
+  ) {}
+
+  ngOnInit() {
+    this.activeTab = "travel-tab";
     this.countryService.countryList().subscribe((res: Country[]) => {
-      this.options = res;
-
-      this.filteredOptions = this.selectedCountry.valueChanges.pipe(
-        startWith(""),
-        map(value => this._filter(value))
-      );
+      this.dataService = this.completerService.local(res, "name", "name");
     });
   }
 
-  ngOnInit() {
-    this.filteredOptions = this.selectedCountry.valueChanges.pipe(
-      startWith(""),
-      map(value => this._filter(value))
-    );
+  onClickTab(activeTab: String) {
+    this.activeTab = activeTab;
   }
 
   clickCountry = () => {};
-
-  private _filter(value: string): Country[] {
-    const filterValue = value.toLowerCase();
-
-    let filter = this.options.filter(option =>
-      option.name.toLowerCase().includes(filterValue)
-    );
-
-    return filter;
-  }
 }
