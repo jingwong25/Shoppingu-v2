@@ -39,5 +39,44 @@ export class TravelComponent implements OnInit {
     this.activeTab = activeTab;
   }
 
+  onClickBack(currentTab: String) {
+    switch (currentTab) {
+      case "product-tab":
+        this.activeTab = "travel-tab";
+        break;
+      case "review-tab":
+        this.activeTab = "product-tab";
+        break;
+    }
+  }
+
+  onClickContinue(currentTab: String) {
+    switch (currentTab) {
+      case "travel-tab":
+        this._continueWithTravel();
+        break;
+      case "product-tab":
+        this._continueWithProduct();
+        break;
+      case "review-tab":
+        this._continueWithReview();
+        break;
+    }
+  }
+
+  _continueWithTravel() {
+    // Validation stuff...
+    this.activeTab = "product-tab";
+  }
+
+  _continueWithProduct() {
+    // Validation stuff...
+    this.activeTab = "review-tab";
+  }
+
+  _continueWithReview() {
+    // Validation stuff...
+  }
+
   clickCountry = () => {};
 }

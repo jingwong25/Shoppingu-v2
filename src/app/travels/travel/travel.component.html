@@ -46,22 +46,42 @@
     >
       <form [formGroup]="travelForm">
         <div class="form-group">
-          <label for="small-pill-input">Country to travel</label>
-          <ng2-completer
-            [inputClass]="'form-control form-control-sm'"
-            formControlName="country"
-            [datasource]="dataService"
-            [minSearchLength]="0"
-          ></ng2-completer>
-          <label for="small-pill-input">Travel Period</label>
-          <input
-            class="form-control form-control-sm"
-            [owlDateTime]="dt1"
-            [owlDateTimeTrigger]="dt1"
-            [selectMode]="'range'"
-            placeholder="Date"
-          />
-          <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+          <div class="row">
+            <div class="col-12">
+              <label for="small-pill-input">Country to travel</label>
+              <ng2-completer
+                [inputClass]="'form-control form-control-sm'"
+                formControlName="country"
+                [datasource]="dataService"
+                [minSearchLength]="0"
+              ></ng2-completer>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <label for="small-pill-input">Travel Period</label>
+              <input
+                class="form-control form-control-sm"
+                [owlDateTime]="dt1"
+                [owlDateTimeTrigger]="dt1"
+                [selectMode]="'range'"
+                placeholder="Date Range"
+              />
+              <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <a
+                class="btn btn-primary"
+                data-target="#"
+                (click)="onClickContinue('travel-tab')"
+                >Continue</a
+              >
+            </div>
+          </div>
         </div>
       </form>
     </div>
@@ -74,7 +94,24 @@
         show: activeTab === 'product-tab'
       }"
     >
-      <div class="form-group"></div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-12">
+            <a
+              class="btn btn-secondary"
+              data-target="#"
+              (click)="onClickBack('product-tab')"
+              >Back</a
+            >
+            <a
+              class="btn btn-primary"
+              data-target="#"
+              (click)="onClickContinue('product-tab')"
+              >Continue</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="tab-pane fade"
@@ -85,15 +122,30 @@
         show: activeTab === 'review-tab'
       }"
     >
-      <p>
-        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party
-        before they sold out master cleanse gluten-free squid scenester freegan
-        cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf
-        cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR,
-        banh mi before they sold out farm-to-table VHS viral locavore cosby
-        sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft
-        beer marfa ethical. Wolf salvia freegan.
-      </p>
+      <div class="row">
+        <div class="col-12">
+          <p>
+            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art
+            party before they sold out master cleanse gluten-free squid
+            scenester freegan cosby sweater. Fanny pack portland seitan DIY, art
+            party locavore wolf cliche high life echo park Austin. Cred vinyl
+            keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table
+            VHS viral locavore cosby sweater. Lomo wolf viral, mustache
+            readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia
+            freegan.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a
+            class="btn btn-secondary"
+            data-target="#"
+            (click)="onClickBack('review-tab')"
+            >Back</a
+          >
+        </div>
+      </div>
     </div>
   </div>
 </div>
