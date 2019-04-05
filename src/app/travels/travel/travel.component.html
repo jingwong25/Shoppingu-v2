@@ -44,7 +44,7 @@
         show: activeTab === 'travel-tab'
       }"
     >
-      <form [formGroup]="travelForm">
+      <form [formGroup]="form">
         <div class="form-group">
           <div class="row">
             <div class="col-12">
@@ -61,14 +61,59 @@
           <div class="row">
             <div class="col-12">
               <label for="small-pill-input">Travel Period</label>
-              <input
+              <div class="input-group d-flex">
+                <input
+                  #myRangeInput
+                  class="form-control"
+                  placeholder="dd/mm/yyy"
+                  name="d"
+                  formControlName="model"
+                  ngbDatepicker
+                  [dayTemplate]="t"
+                  [autoClose]="false"
+                  [displayMonths]="2"
+                  [maxDate]="maxDate"
+                  [minDate]="minDate"
+                  #d="ngbDatepicker"
+                />
+
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary m-0"
+                    (click)="d.toggle()"
+                    type="button"
+                  >
+                    <fa-icon [icon]="faCalendarAlt" size="lg" ></fa-icon>
+                  </button>
+                </div>
+              </div>
+
+              <ng-template #t let-date="date" let-focused="focused">
+                <span
+                  class="custom-day"
+                  [class.range]="
+                    isFrom(date) ||
+                    isTo(date) ||
+                    isInside(date) ||
+                    isHovered(date)
+                  "
+                  [class.faded]="isHovered(date) || isInside(date)"
+                  (click)="onDateSelection(date)"
+                  (mouseenter)="hoveredDate = date"
+                  (mouseleave)="hoveredDate = null"
+                >
+                  {{ date.day }}
+                </span>
+              </ng-template>
+
+              <!-- <input
                 class="form-control form-control-sm"
                 [owlDateTime]="dt1"
                 [owlDateTimeTrigger]="dt1"
                 [selectMode]="'range'"
                 placeholder="Date Range"
               />
-              <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time>
+              <owl-date-time #dt1 [pickerType]="'calendar'"></owl-date-time> -->
             </div>
           </div>
 
