@@ -7,7 +7,7 @@
 
 # dependencies
 /node_modules
-
+/api/node_modules
 /build
 
 # profiling files
@@ -41,6 +41,7 @@ yarn-error.log
 testem.log
 /typings
 /package-lock.json
+/api/package-lock.json
 
 # System Files
 .DS_Store
